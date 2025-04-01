@@ -33,3 +33,8 @@ Resolving steps:
 8. Export the self-signed certificate in advance (read the description of the certificate that is missing), and then follow the wizard to import the self-signed certificate.
 
 Issue resolved based on procedures on this link[https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/installation/warnings-untrusted-certificate](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/installation/warnings-untrusted-certificate)
+
+## Sidenote( as of 1 April, 2025)
+
+1. Sadly I failed to deploy using github action with Azure, but I managed to directly publish the app using only the Azure option without setting up the CI/CD pipeline
+2. The full function of the site hasn't been implemented as I haven't connected it to the Azure SQL database
