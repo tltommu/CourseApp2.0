@@ -1,5 +1,5 @@
 ## CourseApp 2.0
-### Learning to program C#
+### Learning to program C# with this [tutorial](https://www.youtube.com/watch?v=BfEjDD8mWYg&ab_channel=freeCodeCamp.org)
 
 # Bug I have encountered and you may have and here is the solution
 
