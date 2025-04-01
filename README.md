@@ -1,11 +1,26 @@
-# CourseApp 2.0
-## Learning to program C#
+## CourseApp 2.0
+### Learning to program C#
 
 # Bug I have encountered and you may have and here is the solution
 
 ## Root IIS certificate issue
 
-### Error encountered 
+### Error encountered & Images
+![Image1](https://github.com/tltommu/CourseApp2.0/blob/master/CourseApp2.0/Screenshots/image1.png?)  
+Clicked yes for this error  
+
+![Image2](https://github.com/tltommu/CourseApp2.0/blob/master/CourseApp2.0/Screenshots/image2.png?)  
+Clicked yes as well
+
+![Image3](https://github.com/tltommu/CourseApp2.0/blob/master/CourseApp2.0/Screenshots/image3.png?)  
+Clicked yes 
+
+![Image4](https://github.com/tltommu/CourseApp2.0/blob/master/CourseApp2.0/Screenshots/image4.png?)  
+Clicked OK and you need to resolve it
+
+![Image5](https://github.com/tltommu/CourseApp2.0/blob/master/CourseApp2.0/Screenshots/image5.png?)  
+Error displayed on localhost with detailed message, this is where you check the certificate details and import them into the trust root certificate following the steps below.
+
 
 Resolving steps:
 1. Pressing `⊞ + r`, type `mmc` and press `enter`
