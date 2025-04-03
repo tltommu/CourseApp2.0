@@ -3,7 +3,7 @@
     "mssql1": {
       "secretStore": "AzureAppSettings",
       "type": "mssql.onprem",
-      "connectionId": "PersonalWebConnectionStrings"
+      "connectionId": "CourseApp2DBConnectionString"
     }
   }
 }
