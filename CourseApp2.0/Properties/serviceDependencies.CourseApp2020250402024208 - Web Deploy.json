@@ -4,6 +4,11 @@
       "secretStore": "AzureAppSettings",
       "type": "mssql.onprem",
       "connectionId": "CourseApp2DBConnectionString"
+    },
+    "mssql2": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DefaultConnection"
     }
   }
 }
