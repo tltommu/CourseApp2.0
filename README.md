@@ -34,6 +34,9 @@ Resolving steps:
 
 Issue resolved based on procedures on this link[https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/installation/warnings-untrusted-certificate](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/installation/warnings-untrusted-certificate)
 
+## Authentication
+Google auth2.0 setup, follow this tutorial by [codewolf](https://www.youtube.com/watch?v=O1QmK_q2Xfw&ab_channel=TheCodeWolf) as well as the [offcial documentation](https://learn.microsoft.com/en-us/azure/app-service/overview-authentication-authorization#identity-providers) to setup.
+
 ## Sidenote( as of 1 April, 2025)
 
 1. Sadly I failed to deploy using github action with Azure, but I managed to directly publish the app using only the Azure option without setting up the CI/CD pipeline
