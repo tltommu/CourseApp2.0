@@ -40,4 +40,9 @@ Google auth2.0 setup, follow this tutorial by [codewolf](https://www.youtube.com
 ## Sidenote( as of 1 April, 2025)
 
 1. Sadly I failed to deploy using github action with Azure, but I managed to directly publish the app using only the Azure option without setting up the CI/CD pipeline
-2. The full function of the site hasn't been implemented as I haven't connected it to the Azure SQL database
+
+## Sidenote2(as of 3 April,2025)
+Added googleoAuth2.0 for authentication, however user still need to register to use the CRUD function of the app. Need fixes in the future.
+
+## Sidenote3( As of 4 April, 2025)
+Finally Successfully connected to a on premise SQL database, thank you [DigitalTechJoint](https://www.youtube.com/watch?app=desktop&v=jT8eA9A7qXE&ab_channel=DigitalTechJoint)'s guide to help me pinpointing bug was wrong connectionstring.
