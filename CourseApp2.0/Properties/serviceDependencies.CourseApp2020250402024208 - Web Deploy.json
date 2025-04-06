@@ -1,14 +1,15 @@
 {
   "dependencies": {
-    "mssql1": {
-      "secretStore": "AzureAppSettings",
-      "type": "mssql.onprem",
-      "connectionId": "CourseApp2DBConnectionString"
-    },
     "mssql2": {
       "ignored": "true",
       "type": "mssql",
       "connectionId": "ConnectionStrings:DefaultConnection"
+    },
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": null,
+      "type": "mssql.onprem",
+      "connectionId": "CourseAppDBconnection"
     }
   }
 }
