@@ -37,9 +37,14 @@ Issue resolved based on procedures on this link[https://learn.microsoft.com/en-u
 ## Authentication
 Google auth2.0 setup, follow this tutorial by [codewolf](https://www.youtube.com/watch?v=O1QmK_q2Xfw&ab_channel=TheCodeWolf) as well as the [offcial documentation](https://learn.microsoft.com/en-us/azure/app-service/overview-authentication-authorization#identity-providers) to setup.
 
+## Attention
+Please git ignore your `appsettings.json` and `appsettings.json.development`, don't commit it to public github repo like I did.  
+Inside there is a string that is created for the test database if you followed the tutorial linked in this repo. You will need to modify it accordingly when you are deploying your own database.  
+I recommend that you should download [SQL server management studio](https://learn.microsoft.com/en-us/ssms/download-sql-server-management-studio-ssms) & [SQL server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) for local database testing and future database management when you are deploying the database server.
+
 ## Sidenote( as of 1 April, 2025)
 
-1. Sadly I failed to deploy using github action with Azure, but I managed to directly publish the app using only the Azure option without setting up the CI/CD pipeline
+Sadly I failed to deploy using github action with Azure, but I managed to directly publish the app using only the Azure option without setting up the CI/CD pipeline
 
 ## Sidenote2(as of 3 April,2025)
 Added googleoAuth2.0 for authentication, however user still need to register to use the CRUD function of the app. Need fixes in the future.
