@@ -365,3 +365,4 @@ FodyWeavers.xsd
 #appsettings
 appsettings.json
 appsettings.Development.json
+Googleauthsecret.json

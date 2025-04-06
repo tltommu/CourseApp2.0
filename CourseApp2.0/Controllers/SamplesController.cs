@@ -60,7 +60,7 @@ namespace CourseApp2._0.Controllers
         }
 
         // GET: Samples/Create
-        [Authorize]
+        
         public IActionResult Create()
         {
             return View();
@@ -85,7 +85,7 @@ namespace CourseApp2._0.Controllers
         }
 
         // GET: Samples/Edit/5
-        [Authorize]
+        
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Sample == null)
@@ -104,7 +104,7 @@ namespace CourseApp2._0.Controllers
         // POST: Samples/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,name,description")] Sample sample)
@@ -138,7 +138,7 @@ namespace CourseApp2._0.Controllers
         }
 
         // GET: Samples/Delete/5
-        [Authorize]
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Sample == null)
@@ -157,7 +157,7 @@ namespace CourseApp2._0.Controllers
         }
 
         // POST: Samples/Delete/5
-        [Authorize]
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
