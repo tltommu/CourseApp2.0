@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 //CourseAppDBconnection and DefaultConnection
 
-var connectionString = builder.Configuration.GetConnectionString("CourseAppDBConnection");
+var connectionString = builder.Configuration.GetConnectionString("CourseAppDBconnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -24,8 +24,7 @@ builder.Services.AddControllersWithViews();
 // This loads the OAuth 2.0 client ID used by this application from a client ID json file.
 // You can use any mechanism you want to store and retrieve your client ID information, as long
 // as it is secured. If your client ID information is leaked any other app can pose as your own.
-
-
+/*
 ClientInfo clientInfo = ClientInfo.Load();
 
 // This configures Google.Apis.Auth.AspNetCore3 for use in this app.
@@ -49,7 +48,7 @@ builder.Services
         options.ClientSecret = clientInfo.ClientSecret;
     });
 
-
+*/
 
 
 
@@ -74,7 +73,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    //app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }

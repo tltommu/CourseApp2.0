@@ -97,6 +97,10 @@ namespace CourseApp2._0.Controllers
         /// <param name="auth">The Google authorization provider.
         /// This can also be injected on the controller constructor.</param>
 
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
 
         /// <summary>
