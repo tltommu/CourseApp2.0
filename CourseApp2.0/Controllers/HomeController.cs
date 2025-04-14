@@ -19,20 +19,13 @@ namespace CourseApp2._0.Controllers
 {
     public class HomeController : Controller
     {
-        /// <summary>
-        /// Public home page.
-        /// No authorization required. User doesn't need to login to see this.
-        /// </summary>
+      
         public IActionResult Index()
         {
             return View();
         }
 
-        /// <summary>
-        /// Login action.
-        /// No authentication specific code. Just adding the <see cref="AuthorizeAttribute"/>
-        /// will trigger authentication if necessary.
-        /// </summary>
+        
         [Authorize]
         public IActionResult Login()
         {
@@ -52,13 +45,7 @@ namespace CourseApp2._0.Controllers
             return View();
         }
 
-        /// <summary>
-        /// Shows the current scopes associated to the authenticated account.
-        /// Specifying the <see cref="AuthorizeAttribute"/> will guarantee that the code
-        /// executes only if the user is authenticated. No specific scopes are required.
-        /// </summary>
-        /// <param name="auth">The Google authorization provider.
-        /// This can also be injected on the controller constructor.</param>
+       
         [Authorize]
         public async Task<IActionResult> ScopeListing([FromServices] IGoogleAuthProvider auth)
         {
@@ -66,14 +53,7 @@ namespace CourseApp2._0.Controllers
             return View(currentScopes);
         }
 
-        /// <summary>
-        /// Lists the authenticated user's Google Drive files.
-        /// Specifying the <see cref="GoogleScopedAuthorizeAttribute"> will guarantee that the code
-        /// executes only if the user is authenticated and has granted the scope specified in the attribute
-        /// to this application.
-        /// </summary>
-        /// <param name="auth">The Google authorization provider.
-        /// This can also be injected on the controller constructor.</param>
+     
         [GoogleScopedAuthorize(DriveService.ScopeConstants.DriveReadonly)]
         public async Task<IActionResult> DriveFileList([FromServices] IGoogleAuthProvider auth)
         {
@@ -87,15 +67,7 @@ namespace CourseApp2._0.Controllers
             return View(fileNames);
         }
 
-        /// <summary>
-        /// Lists the authenticated user's Calendars.
-        /// Specifying the <see cref="AuthorizeAttribute"/> will guarantee that the code executes only if the
-        /// user is authenticated.
-        /// No scopes are required via attributes.
-        /// Instead, scope are required via code using <see cref="IGoogleAuthProvider.RequireScopesAsync(string[])"/>.
-        /// </summary>
-        /// <param name="auth">The Google authorization provider.
-        /// This can also be injected on the controller constructor.</param>
+        
 
         public IActionResult Privacy()
         {
@@ -103,12 +75,7 @@ namespace CourseApp2._0.Controllers
         }
 
 
-        /// <summary>
-        /// Fetches and shows the Google OAuth2 tokens that are currently active for the logged in user.
-        /// Specifying the <see cref="AuthorizeAttribute"/> will guarantee that the code executes only if the
-        /// user is authenticated. Once the user is authenticated the tokens are stored locally, in a cookie,
-        /// and we can inspect them.
-        /// </summary>
+    
         [Authorize]
         public async Task<IActionResult> ShowTokens()
         {
@@ -157,13 +124,7 @@ namespace CourseApp2._0.Controllers
             public string AccessToken;
         }
 
-        /// <summary>
-        /// Forces the refresh of the OAuth access token.
-        /// Specifying the <see cref="AuthorizeAttribute"/> will guarantee that the code executes only if the
-        /// user is authenticated.
-        /// </summary>
-        /// <param name="auth">The Google authorization provider.
-        /// This can also be injected on the controller constructor.</param>
+        
         [Authorize]
         public async Task<IActionResult> ForceTokenRefresh([FromServices] IGoogleAuthProvider auth)
         {
@@ -214,15 +175,7 @@ namespace CourseApp2._0.Controllers
             return View(model);
         }
 
-        /// <summary>
-        /// Checks that the access token is the expected one.
-        /// Specifying the <see cref="AuthorizeAttribute"/> will guarantee that the code executes only if the
-        /// user is authenticated.
-        /// This method is used from the Force Refresh sample to show that the refreshed token is persisted.
-        /// </summary>
-        /// <param name="auth">The Google authorization provider.
-        /// This can also be injected on the controller constructor.</param>
-        /// <param name="expectedAccessToken">The expected token.</param>
+       
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> ForceTokenRefreshCheckPersisted([FromServices] IGoogleAuthProvider auth, [FromForm] string expectedAccessToken)

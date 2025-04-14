@@ -21,11 +21,13 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+
+
 // This loads the OAuth 2.0 client ID used by this application from a client ID json file.
 // You can use any mechanism you want to store and retrieve your client ID information, as long
 // as it is secured. If your client ID information is leaked any other app can pose as your own.
-/*
-ClientInfo clientInfo = ClientInfo.Load();
+
+/*ClientInfo clientInfo = ClientInfo.Load();
 
 // This configures Google.Apis.Auth.AspNetCore3 for use in this app.
 builder.Services
@@ -47,8 +49,8 @@ builder.Services
         options.ClientId = clientInfo.ClientId;
         options.ClientSecret = clientInfo.ClientSecret;
     });
-
 */
+
 
 
 
@@ -84,7 +86,7 @@ var handler = new HttpClientHandler
 };
 
 
-
+app.UseStatusCodePagesWithRedirects("/Shared/{Error}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
