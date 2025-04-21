@@ -37,6 +37,8 @@ Issue resolved based on procedures on this link[https://learn.microsoft.com/en-u
 ## Authentication
 Google auth2.0 setup, follow this tutorial by [codewolf](https://www.youtube.com/watch?v=O1QmK_q2Xfw&ab_channel=TheCodeWolf) as well as the [offcial documentation](https://learn.microsoft.com/en-us/azure/app-service/overview-authentication-authorization#identity-providers) to setup.
 
+### Dependency: Based on your ASP.NET version, in my case it was .NET6.0, you have to install the dependency `Microsoft.AspNetCore.Authentication.Google v6.0.x`to use the `AddGoogle` function.
+
 ## Attention
 Please git ignore your `appsettings.json` and `appsettings.json.development`, don't commit it to public github repo like I did.  
 Inside there is a string that is created for the test database if you followed the tutorial linked in this repo. You will need to modify it accordingly when you are deploying your own database.  
@@ -51,3 +53,6 @@ Added googleoAuth2.0 for authentication, however user still need to register to 
 
 ## Sidenote3( As of 4 April, 2025)
 Finally Successfully connected to a on premise SQL database, thank you [DigitalTechJoint](https://www.youtube.com/watch?app=desktop&v=jT8eA9A7qXE&ab_channel=DigitalTechJoint)'s guide to help me pinpointing bug was wrong connectionstring.
+
+## Sidenote 4 ( As of 20 April, 2025)
+Successfully using google authentication to verify and create account for users to leave comment. Added basic app logic such that only the creator of the comment can edit/delete their comment.
