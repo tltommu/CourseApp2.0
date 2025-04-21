@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<CourseApp2._0.Models.Sample>
-
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
 @{
     ViewData["Title"] = "Index";
+    var currentUserId = UserManager.GetUserId(User);
 }
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -101,10 +103,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.description)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+            <td> 
                 <a asp-action="Details" asp-route-id="@item.id">Details</a>
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    @if (item.UserId == currentUserId)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    }
             </td>
         </tr>
     }

@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using CourseApp2._0.Data;
 using CourseApp2._0.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace CourseApp2._0.Controllers
 {
@@ -70,11 +72,13 @@ namespace CourseApp2._0.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-   
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,name,description")] Sample sample)
         {
+            sample.UserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
             if (ModelState.IsValid)
             {
                 _context.Add(sample);
@@ -85,7 +89,7 @@ namespace CourseApp2._0.Controllers
         }
 
         // GET: Samples/Edit/5
-        
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Sample == null)
@@ -94,17 +98,21 @@ namespace CourseApp2._0.Controllers
             }
 
             var sample = await _context.Sample.FindAsync(id);
-            if (sample == null)
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (sample == null || sample.UserId != currentUserId)
             {
-                return NotFound();
+                return Forbid(); // or return RedirectToAction("Index")
             }
+            
             return View(sample);
         }
 
         // POST: Samples/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,name,description")] Sample sample)
@@ -138,26 +146,29 @@ namespace CourseApp2._0.Controllers
         }
 
         // GET: Samples/Delete/5
-        
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Sample == null)
             {
                 return NotFound();
             }
+            
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var sample = await _context.Sample
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (sample == null)
+            
+            if (sample == null || sample.UserId != currentUserId)
             {
-                return NotFound();
+                return Forbid(); // or return RedirectToAction("Index")
             }
 
             return View(sample);
         }
 
         // POST: Samples/Delete/5
-        
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

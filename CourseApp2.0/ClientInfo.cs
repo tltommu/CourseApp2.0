@@ -10,24 +10,25 @@ namespace CourseApp2._0
 
         public static ClientInfo Load()
         {
-            string clientSecretFilename = Environment.GetEnvironmentVariable("Google_Secret");
-            if (string.IsNullOrEmpty(clientSecretFilename))
+            // Instead of relying on env variable
+            string clientSecretFilename = Path.Combine(Directory.GetCurrentDirectory(), "Googleauthsecret.json");
+
+            if (!File.Exists(clientSecretFilename))
             {
-                throw new InvalidOperationException($"Please set the {Google_Secret} environment variable before running tests.");
+                throw new InvalidOperationException($"OAuth credentials file not found at: {clientSecretFilename}");
             }
 
             var secrets = JObject.Parse(File.ReadAllText(clientSecretFilename))["web"];
 
-            // Check that this is a "web" client ID, not any other type of client ID like "installed app".
-            // The "web" element should have been present in the json so secrets value shouldn't be null.
             if (secrets is null)
             {
                 throw new InvalidOperationException(
-                    $"The type of the OAuth2 client ID specified in {Google_Secret} should be Web Application. You can read more about setting up OAuth2 client IDs here: https://support.google.com/cloud/answer/6158849?hl=en");
+                    $"The type of the OAuth2 client ID specified in Googleauthsecret.json should be Web Application. You can read more here: https://support.google.com/cloud/answer/6158849?hl=en");
             }
-            var projectId = secrets["project_id"].Value<string>();
-            var clientId = secrets["client_id"].Value<string>();
-            var clientSecret = secrets["client_secret"].Value<string>();
+
+            var projectId = secrets["project_id"]?.ToString();
+            var clientId = secrets["client_id"]?.ToString();
+            var clientSecret = secrets["client_secret"]?.ToString();
 
             return new ClientInfo(projectId, clientId, clientSecret);
         }
