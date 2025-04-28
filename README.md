@@ -44,15 +44,11 @@ Please git ignore your `appsettings.json` and `appsettings.json.development`, do
 Inside there is a string that is created for the test database if you followed the tutorial linked in this repo. You will need to modify it accordingly when you are deploying your own database.  
 I recommend that you should download [SQL server management studio](https://learn.microsoft.com/en-us/ssms/download-sql-server-management-studio-ssms) & [SQL server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) for local database testing and future database management when you are deploying the database server.
 
-## Sidenote( as of 1 April, 2025)
-
-Sadly I failed to deploy using github action with Azure, but I managed to directly publish the app using only the Azure option without setting up the CI/CD pipeline
-
-## Sidenote2(as of 3 April,2025)
+## Sidenote 1 (as of 3 April,2025)
 Added googleoAuth2.0 for authentication, however user still need to register to use the CRUD function of the app. Need fixes in the future.
 
-## Sidenote3( As of 4 April, 2025)
+## Sidenote 2 ( As of 4 April, 2025)
 Finally Successfully connected to a on premise SQL database, thank you [DigitalTechJoint](https://www.youtube.com/watch?app=desktop&v=jT8eA9A7qXE&ab_channel=DigitalTechJoint)'s guide to help me pinpointing bug was wrong connectionstring.
 
-## Sidenote 4 ( As of 20 April, 2025)
+## Sidenote 3 ( As of 20 April, 2025)
 Successfully using google authentication to verify and create account for users to leave comment. Added basic app logic such that only the creator of the comment can edit/delete their comment.
