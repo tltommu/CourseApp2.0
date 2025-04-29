@@ -35,7 +35,7 @@ Issue resolved based on procedures on this link[https://learn.microsoft.com/en-u
 
 ## Scafoldded Items
 
-All the pages in `Areas\Identity\Pages\Account\Manage` are scafoldded items of ASP.NET SDK. It normally would not appear in the files unless your added them manually by 
+All the pages in `Areas\Identity\Pages\Account\Manage` are scafoldded items of ASP.NET SDK. It normally would not appear in the files unless you added them manually by 
 1. Right-clicking your project in solution explorer (in my case is `CourseApp2.0`)
 2. Click `Add Scafoldded Item`
 3. Select `Identity`
