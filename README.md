@@ -21,7 +21,6 @@ Clicked OK and you need to resolve it
 ![Image5](https://github.com/tltommu/CourseApp2.0/blob/master/CourseApp2.0/Screenshots/image5.png?)  
 Error displayed on localhost with detailed message, this is where you check the certificate details and import them into the trust root certificate following the steps below.
 
-
 Resolving steps:
 1. Pressing `⊞ + r`, type `mmc` and press `enter`
 2. In the MMC window, go to File > Add/Remove Snap-in...
@@ -33,6 +32,14 @@ Resolving steps:
 8. Export the self-signed certificate in advance (read the description of the certificate that is missing), and then follow the wizard to import the self-signed certificate.
 
 Issue resolved based on procedures on this link[https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/installation/warnings-untrusted-certificate](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/installation/warnings-untrusted-certificate)
+
+## Scafoldded Items
+
+All the pages in `Areas\Identity\Pages\Account\Manage` are scafoldded items of ASP.NET SDK. It normally would not appear in the files unless your added them manually by 
+1. Right-clicking your project in solution explorer (in my case is `CourseApp2.0`)
+2. Click `Add Scafoldded Item`
+3. Select `Identity`
+4. Then choose pages you want to add. There are almost 30 pages of it and you can customize them as you wish.
 
 ## Authentication
 Google auth2.0 setup, follow this tutorial by [codewolf](https://www.youtube.com/watch?v=O1QmK_q2Xfw&ab_channel=TheCodeWolf) as well as the [offcial documentation](https://learn.microsoft.com/en-us/azure/app-service/overview-authentication-authorization#identity-providers) to setup.
