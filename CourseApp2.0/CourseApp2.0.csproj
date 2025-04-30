@@ -28,4 +28,8 @@
     <Folder Include="Screenshots\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\svg\.DS_Store" />
+  </ItemGroup>
+
 </Project>

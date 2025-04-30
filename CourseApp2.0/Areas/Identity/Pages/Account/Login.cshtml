@@ -44,15 +44,25 @@
 
             @if (Model.ExternalLogins?.Count > 0)
             {
-                <hr class="my-4" />
-                <div class="text-center">
-                    <p>Or login using:</p>
-                    <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div class="text-center mt-4">
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                         @foreach (var provider in Model.ExternalLogins!)
                         {
-                            <button type="submit" class="btn btn-outline-dark w-100 mb-2" name="provider" value="@provider.Name">
-                                Login with @provider.DisplayName
-                            </button>
+                            if (provider.Name == "Google")
+                            {
+                                <button type="submit" class="btn btn-light border w-100 mb-2 d-flex align-items-center justify-content-center gap-2 py-2 fs-5"
+                                        name="provider" value="@provider.Name" title="Login using @provider.DisplayName">
+                                    <img src="~/svg/neutral/web_neutral_rd_ctn.svg" alt="Google logo" style="height:auto; width:auto;">
+                                    
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-dark w-100 mb-2"
+                                        name="provider" value="@provider.Name" title="Login using @provider.DisplayName">
+                                    @provider.DisplayName
+                                </button>
+                            }
                         }
                     </form>
                 </div>
