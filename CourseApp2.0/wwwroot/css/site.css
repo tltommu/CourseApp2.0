@@ -13,6 +13,14 @@ body {
     flex-direction: column;
 }
 
+.background-page {
+    background-image: url('/Background/Background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+}
+
 nav {
     background-color: #ffffff;
     padding: 1rem 2rem;
