@@ -14,16 +14,28 @@ body {
 }
 
 .background-page {
-    background-image: url('/Background/Background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    position: relative;
     min-height: 100vh;
-    filter:brightness(100%)
+    z-index: 0;
 }
 
+    .background-page::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: url('/Background/Background4.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 1; /* Set your desired opacity here */
+        filter: brightness(100%);
+        z-index: -1;
+    }
+
 nav {
-    background-color: #ffffff;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -60,6 +72,7 @@ nav {
 }
 
     .hero h1 {
+        color: #FFFFFF;
         font-size: 3rem;
         margin-bottom: 1rem;
     }
